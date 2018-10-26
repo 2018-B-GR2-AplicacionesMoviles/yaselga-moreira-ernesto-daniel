@@ -4,16 +4,6 @@ val reader = Scanner(System.`in`)
 val materiales: MutableList<Material> = mutableListOf()
 val prendas: MutableList<Prenda> = mutableListOf()
 
-/*val prendas: MutableList<Prenda> = mutableListOf(Prenda("Chaleco",
-        "superior",
-        "Chaleco de estilo formal",
-        45.00,
-        Material("Algodón",
-                "azul",
-                "metros",
-                5,
-                3.0)))
-*/
 
 fun main(args: Array<String>) {
     println("S.A.STRE")
@@ -89,8 +79,8 @@ fun submenuEditar(){
         opc = reader.nextInt()
 
         when (opc){
-            1 -> materiales.add(Material("lana","azul","metros",10, 3.5))
-            2 -> prendas.add(Prenda("pantalon","inferior","pantalon formal",50.00,materiales[0]))
+            //1 -> materiales.add(Material("lana","azul","metros",10, 3.5))
+            //2 -> prendas.add(Prenda("pantalon","inferior","pantalon formal",50.00,materiales[0]))
             0 -> println("saliendo de menu ingresar...")
         }
     }
@@ -101,14 +91,14 @@ fun submenuEditar(){
 fun submenuBorrar(){
     var opc:Int = 99
     while (opc != 0){
-        println("1.- Ingresar nuevo material")
-        println("2.- Ingresar nueva prenda")
+        println("1.- Borrar material")
+        println("2.- Borrar prenda")
         println("0.- Volver")
         opc = reader.nextInt()
 
         when (opc){
-            1 -> materiales.add(Material("lana","azul","metros",10, 3.5))
-            2 -> prendas.add(Prenda("pantalon","inferior","pantalon formal",50.00,materiales[0]))
+        //    1 -> materiales.add(Material("lana","azul","metros",10, 3.5))
+        //    2 -> prendas.add(Prenda("pantalon","inferior","pantalon formal",50.00,materiales[0]))
             0 -> println("saliendo de menu ingresar...")
         }
     }
