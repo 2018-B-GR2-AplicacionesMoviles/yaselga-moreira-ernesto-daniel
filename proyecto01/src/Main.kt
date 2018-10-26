@@ -103,8 +103,10 @@ fun submenuBorrar(){
         when (opc){
             1 -> materiales.removeAll(materiales)
             2 -> prendas.removeAll(prendas)
-            3 -> borrar_material()
-            4 -> borrar_prenda()
+            3 -> {imprimir_materiales()
+                borrar_material()}
+            4 -> {imprimir_prendas()
+                borrar_prenda()}
             0 -> println("saliendo de menu borrar...")
         }
     }
