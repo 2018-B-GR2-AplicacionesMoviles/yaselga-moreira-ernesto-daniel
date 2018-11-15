@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Moviles :·3</string>
+
+    <!--Activity Button-->
+    <string name="titulo_activity">Crear Correo</string>
+    <string name="titulo_correo">destinatario</string>
+    <string name="titulo_asunto">asunto</string>
+    <string name="titulo_texto">Texto</string>
+
 </resources>
