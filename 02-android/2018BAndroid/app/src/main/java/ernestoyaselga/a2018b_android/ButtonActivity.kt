@@ -36,7 +36,7 @@ class ButtonActivity : AppCompatActivity() {
 
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/html"
-        intent.putExtra(Intent.EXTRA_EMAIL,arrayOf(correo,"e@e.com"))
+        intent.putExtra(Intent.EXTRA_EMAIL,arrayOf(correo,"eyaselga@hotmail.com"))
         intent.putExtra(Intent.EXTRA_EMAIL,subjet)
         intent.putExtra(Intent.EXTRA_TEXT,texto)
 

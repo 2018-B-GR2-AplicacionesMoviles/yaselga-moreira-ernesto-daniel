@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Main Activity-->
     <string name="string1">hola genérico</string>
     <string name="alarma">Set Alarma</string>
+    <string name="correo">Enviar correo</string>
+
+    <!--Activity Button-->
+    <string name="titulo_activity_ButtonActivity">Crear Correo</string>
+    <string name="titulo_correo">destinatario</string>
+    <string name="titulo_asunto">asunto</string>
+    <string name="titulo_texto">Texto</string>
+    <string name="btn_respuesta">Intent Respuesta</string>
 
 </resources>

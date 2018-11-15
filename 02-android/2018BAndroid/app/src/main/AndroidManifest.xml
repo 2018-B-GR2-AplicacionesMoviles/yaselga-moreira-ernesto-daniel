@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ernestoyaselga.a2018b_android">
+
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
@@ -17,8 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ButtonActivity"></activity>
-    </application>
+        <activity android:name=".ButtonActivity" />
+        <activity android:name=".Respuesta_Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".activity_resultado_propio"></activity>
+    </application>
 
 </manifest>

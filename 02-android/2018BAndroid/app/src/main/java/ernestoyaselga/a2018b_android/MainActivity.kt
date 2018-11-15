@@ -27,7 +27,11 @@ class MainActivity : AppCompatActivity() {
                     this.irAPantallaDeBotones()
                 }
         boton_alarma.setOnClickListener{
-            this.createAlarm("Alarm",5,10)
+            this.createAlarm("Alarm",6,0)
+
+        }
+        boton_respuesta.setOnClickListener{
+            this.irAPantallaRespuesta()
         }
     }
 
@@ -37,6 +41,11 @@ class MainActivity : AppCompatActivity() {
                 intentIrABotones.putExtra("nombre","Ernesto")
                 intentIrABotones.putExtra("apellido","Yaselga")
         this.startActivity(intentIrABotones)
+    }
+    fun irAPantallaRespuesta() {
+        // INTENT
+        val intentIrARespuesta = Intent(this, Respuesta_Activity::class.java)
+        this.startActivity(intentIrARespuesta)
     }
 
     fun createAlarm(message: String, hour: Int, minutes: Int) {
