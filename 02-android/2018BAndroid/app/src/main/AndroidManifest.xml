@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ernestoyaselga.a2018b_android">
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -18,5 +19,6 @@
         </activity>
         <activity android:name=".ButtonActivity"></activity>
     </application>
+
 
 </manifest>
