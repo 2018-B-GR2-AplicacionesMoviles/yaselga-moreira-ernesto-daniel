@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <Button
+        android:id="@+id/btn_galeria"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/btn_galeria"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_nuevo_pedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/btn_nuevo_pedido"
+        app:layout_constraintEnd_toEndOf="@+id/btn_galeria"
+        app:layout_constraintStart_toStartOf="@+id/btn_galeria"
+        app:layout_constraintTop_toBottomOf="@+id/btn_galeria" />
+
+    <Button
+        android:id="@+id/btn_pedidos"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:text="@string/btn_pedidos"
+        app:layout_constraintEnd_toEndOf="@+id/btn_nuevo_pedido"
+        app:layout_constraintStart_toStartOf="@+id/btn_nuevo_pedido"
+        app:layout_constraintTop_toBottomOf="@+id/btn_nuevo_pedido" />
+</android.support.constraint.ConstraintLayout>

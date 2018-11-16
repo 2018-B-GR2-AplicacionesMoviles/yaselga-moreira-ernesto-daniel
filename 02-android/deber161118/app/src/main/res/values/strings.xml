@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">deber161118</string>
+    <string name="app_name">adminitrador de pedidos</string>
+
+    <string name="lb_user">Usuario</string>
+    <string name="lb_pass">Contraseña</string>
+    <string name="lb_ingresar_usuario">Usuario</string>
+    <string name="lb_ingresar_invitado">Invitado</string>
+
+    <string name="btn_galeria">Galeria</string>
+    <string name="btn_nuevo_pedido">Nuevo Pedido</string>
+    <string name="btn_pedidos">Pedidos</string>
+
+    <string name="lb_cliente">Nomnbre del cliente</string>
+    <string name="lb_fecha_entrega">Fecha de entrega</string>
+    <string name="lb_Camisa">Camisa</string>
+    <string name="lb_Pantalon">Pantalon</string>
+    <string name="lb_Terno">Terno</string>
+
 </resources>
