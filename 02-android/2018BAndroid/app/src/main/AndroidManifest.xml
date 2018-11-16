@@ -31,7 +31,8 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".activity_resultado_propio"></activity>
+        <activity android:name=".activity_resultado_propio" />
+        <activity android:name=".CicloDeVidaActivity"></activity>
     </application>
 
 </manifest>

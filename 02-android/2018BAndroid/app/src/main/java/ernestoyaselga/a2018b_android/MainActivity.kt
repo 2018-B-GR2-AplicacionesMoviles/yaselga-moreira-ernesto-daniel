@@ -33,6 +33,15 @@ class MainActivity : AppCompatActivity() {
         boton_respuesta.setOnClickListener{
             this.irAPantallaRespuesta()
         }
+
+        btn_cicloDeVida.setOnClickListener {
+            this.irACicloDeVida()
+        }
+    }
+
+    fun irACicloDeVida(){
+        val intentIrACicloDeVida = Intent(this, CicloDeVidaActivity::class.java)
+        this.startActivity(intentIrACicloDeVida)
     }
 
     fun irAPantallaDeBotones() {

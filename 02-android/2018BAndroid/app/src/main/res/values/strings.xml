@@ -3,6 +3,8 @@
 
 
     <string name="title_activity_settings">Settings</string>
+    <string name="label_contador">Contador:</string>
+    <string name="btn_contador">Aumentar</string>
 
     <!-- Strings related to Settings -->
 
