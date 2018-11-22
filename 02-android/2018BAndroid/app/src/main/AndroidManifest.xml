@@ -32,7 +32,9 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".activity_resultado_propio" />
-        <activity android:name=".CicloDeVidaActivity"></activity>
+        <activity android:name=".CicloDeVidaActivity" />
+        <activity android:name=".ParcelableActivity" />
+        <activity android:name=".AdaptadorActivity"></activity>
     </application>
 
 </manifest>

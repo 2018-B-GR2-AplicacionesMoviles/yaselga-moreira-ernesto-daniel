@@ -3,7 +3,7 @@ package ernestoyaselga.a2018b_android
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import java.util.*
 import kotlinx.android.synthetic.main.activity_main.*
 import android.provider.AlarmClock
 
@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
                     */
                     this.irAPantallaDeBotones()
                 }
+        boton_parcelable.setOnClickListener{
+            this.irActividadIntent()
+        }
         boton_alarma.setOnClickListener{
             this.createAlarm("Alarm",6,0)
 
@@ -37,6 +40,32 @@ class MainActivity : AppCompatActivity() {
         btn_cicloDeVida.setOnClickListener {
             this.irACicloDeVida()
         }
+
+        btn_adaptador.setOnClickListener{
+            this.irActividAdaptador()
+        }
+
+    }
+
+    fun irActividadIntent(){
+        val intentActividadIntent = Intent(this,ParcelableActivity::class.java)
+
+        val ernesto = Usuario(
+                "USUARIO",
+                22,
+                Date(1996,10,10),
+                10.00)
+        val cuatro = Mascota("Cuatro",ernesto)
+
+        intent.putExtra("usuario",ernesto)
+        intent.putExtra("mascota",cuatro)
+
+        startActivity(intentActividadIntent)
+    }
+
+    fun irActividAdaptador(){
+        val intentAdaptador = Intent(this, AdaptadorActivity::class.java)
+        startActivity(intentAdaptador)
     }
 
     fun irACicloDeVida(){
