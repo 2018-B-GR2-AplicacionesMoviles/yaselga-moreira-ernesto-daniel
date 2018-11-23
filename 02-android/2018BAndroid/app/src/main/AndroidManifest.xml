@@ -34,7 +34,8 @@
         <activity android:name=".activity_resultado_propio" />
         <activity android:name=".CicloDeVidaActivity" />
         <activity android:name=".ParcelableActivity" />
-        <activity android:name=".AdaptadorActivity"></activity>
+        <activity android:name=".AdaptadorActivity" />
+        <activity android:name=".LayoutActivity"></activity>
     </application>
 
 </manifest>

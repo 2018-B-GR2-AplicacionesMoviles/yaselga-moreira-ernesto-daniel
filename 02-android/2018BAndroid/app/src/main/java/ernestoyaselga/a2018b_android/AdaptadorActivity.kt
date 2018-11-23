@@ -2,6 +2,7 @@ package ernestoyaselga.a2018b_android
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -23,6 +24,16 @@ class AdaptadorActivity : AppCompatActivity() {
         arregloUsuarios.add(usuarioUno)
         arregloUsuarios.add(usuarioDos)
 
+        val arregloMascotas = ArrayList<Mascota>();
+        val opcionuno = Mascota("Firulais",usuarioUno)
+        val opciondos = Mascota("Pelusa",usuarioDos)
+        val opciontres = Mascota("Zeus",usuarioDos)
+
+        arregloMascotas.add(opcionuno)
+        arregloMascotas.add(opciondos)
+        arregloMascotas.add(opciontres)
+
+
 
         //ADAPTADOR
         //CREAR
@@ -31,11 +42,24 @@ class AdaptadorActivity : AppCompatActivity() {
                 android.R.layout.simple_spinner_dropdown_item,
                 arregloUsuarios
         )
+
+        val adaptadorLista = ArrayAdapter<Mascota>(
+                this,
+                android.R.layout.simple_list_item_1,
+                arregloMascotas)
+
+
+
+
         //SETEAR EL ADAPTADOR
         spinner_usuario.adapter = adaptadorUsuario
 
+        lista_mascotas.adapter = adaptadorLista
+
+
+
         //ESCUCHAR LOS EVENTOS DEL MISMO
-        spinner_usuario.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
+        /*spinner_usuario.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -55,7 +79,11 @@ class AdaptadorActivity : AppCompatActivity() {
                 Log.i("adaptador","${parent}")
             }
 
-        }
+        }*/
+
+
+
+
 
     }
 }

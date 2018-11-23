@@ -44,7 +44,13 @@ class MainActivity : AppCompatActivity() {
         btn_adaptador.setOnClickListener{
             this.irActividAdaptador()
         }
-
+        btn_layout_activity.setOnClickListener {
+            this.irALayouts()
+        }
+    }
+    fun irALayouts(){
+        val intentAcividadIntent = Intent (this, LayoutActivity::class.java)
+        startActivity(intentAcividadIntent)
     }
 
     fun irActividadIntent(){

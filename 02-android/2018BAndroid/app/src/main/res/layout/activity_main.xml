@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="@string/btn_respuesta"
         app:layout_constraintEnd_toEndOf="@+id/boton_alarma"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="@+id/boton_alarma"
         app:layout_constraintTop_toBottomOf="@+id/boton_alarma" />
 
@@ -39,10 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="24dp"
         android:text="@string/correo"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -54,7 +54,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="@string/alarma"
         app:layout_constraintEnd_toEndOf="@+id/boton_navegar"
         app:layout_constraintHorizontal_bias="1.0"
@@ -69,7 +69,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="CicloDeVida"
         app:layout_constraintEnd_toEndOf="@+id/boton_respuesta"
         app:layout_constraintHorizontal_bias="0.519"
@@ -80,36 +80,39 @@
         android:id="@+id/boton-parcelable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:text="parcelable"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/boton_alarma"
         app:layout_constraintEnd_toStartOf="@+id/boton_alarma"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintTop_toTopOf="@+id/boton_navegar"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_adaptador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:text="adaptador"
         app:layout_constraintBottom_toBottomOf="@+id/boton_alarma"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toEndOf="@+id/boton_alarma"
         app:layout_constraintTop_toBottomOf="@+id/boton_navegar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_layout_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
+        android:text="layouts"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cicloDeVida"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cicloDeVida"
+        app:layout_constraintTop_toTopOf="@+id/btn_cicloDeVida"
         app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
