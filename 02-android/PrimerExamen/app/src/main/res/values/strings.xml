@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Primer-Examen</string>
+
+    <!-- Main menu -->
+    <string name="btn_ingresar">Ingresar Casa</string>
+    <string name="btn_consultsar">Consultar Casas</string>
+
+    <!-- Ingresar menu -->
+    <string name="txt_ciudad">Ciudad</string>
+    <string name="txt_barrio">Barrio</string>
+    <string name="txt_direccion">Direccion</string>
+    <string name="txt_referencia">Referencia</string>
+    <string name="txt_precio">Precio en $</string>
+    <string name="txt_tamanio">Metros cudrados</string>
+    <string name="txt_btn_ingresar">Ingresar</string>
+    <string name="txt_btn_cancelar">Cancelar</string>
+
+    <!-- Editar menu -->
+    <string name="txt_btn_actualizar">Actualizar</string>
+    <string name="txt_btn_borrar">Borrar</string>
+
+</resources>
