@@ -3,29 +3,21 @@ package ernestoyaselga.primer_examen
 import android.os.Parcel
 import android.os.Parcelable
 
-class Casa(var ciudad:String,
-           var barrio:String,
-           var direccion:String,
-           var referencia:String,
-           var precio:Int,
-           var tamanio:Double):Parcelable{
 
+class Casa (public var numeroCasa: String, public var descripcion:String, public var m2:String, public var precio:String): Parcelable{
     constructor(parcel: Parcel) : this(
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readInt(),
-            parcel.readDouble()) {
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString()
+    ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(ciudad)
-        parcel.writeString(barrio)
-        parcel.writeString(direccion)
-        parcel.writeString(referencia)
-        parcel.writeInt(precio)
-        parcel.writeDouble(tamanio)
+        parcel.writeString(numeroCasa)
+        parcel.writeString(descripcion)
+        parcel.writeString(m2)
+        parcel.writeString(precio)
     }
 
     override fun describeContents(): Int {
@@ -41,9 +33,11 @@ class Casa(var ciudad:String,
             return arrayOfNulls(size)
         }
     }
-
     override fun toString(): String {
-        return "${ciudad} - ${barrio} - ${precio}"
+        return "Casa#${numeroCasa}. Desc: ${descripcion} Metros cuadrados: $m2  Precio: $precio"
     }
+
+
+
 
 }
