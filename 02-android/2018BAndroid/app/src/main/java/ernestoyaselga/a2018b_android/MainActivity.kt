@@ -3,7 +3,6 @@ package ernestoyaselga.a2018b_android
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -27,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         button_intent_respuesta
                 .setOnClickListener {
                     this.irAPantallaDeIntentRespuesta()
+                }
+        button_fragmento
+                .setOnClickListener {
+                    this.irAPantallaFragmentos()
                 }
 
         button_ciclo_vida
@@ -108,6 +111,11 @@ class MainActivity : AppCompatActivity() {
         // INTENT
         val intentRespuesta = Intent(this, IntentRespuestaActivity::class.java)
         this.startActivity(intentRespuesta)
+    }
+    fun irAPantallaFragmentos() {
+        // INTENT
+        val intentFragmentos = Intent(this, Fragmentos::class.java)
+        this.startActivity(intentFragmentos)
     }
 
 }

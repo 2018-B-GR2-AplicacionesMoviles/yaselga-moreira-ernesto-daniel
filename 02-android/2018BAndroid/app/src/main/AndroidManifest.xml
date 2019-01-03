@@ -33,6 +33,7 @@
         <activity android:name=".ParcelableActivity" />
         <activity android:name=".AdaptadorActivity" />
         <activity android:name=".ReciclerViewActivity" />
+        <activity android:name=".Fragmentos"></activity>
     </application>
 
 </manifest>
