@@ -5,41 +5,49 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_button.*
 
-
 class ButtonActivity : AppCompatActivity() {
 
-    var nombre:String = ""
-    var apellido:String = ""
+    var nombre: String = ""
+    var apellido: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_button)
 
-        this.capturardatosdelIntent()
+        this.capturarDatosDelIntent()
 
-        actv_but_nombre_apellido.text=nombre+" "+apellido
-
-        boton1enviar.setOnClickListener{
-            enviarcorreo()
-        }
+        but_but_intent_implicito  // ID BOTON
+                .setOnClickListener {
+                    enviarIntentCorreo()
+                }
 
     }
 
-    fun capturardatosdelIntent(){
-        this.nombre=intent.getStringExtra("nombre")
-        this.apellido=intent.getStringExtra("apellido")
+    fun capturarDatosDelIntent() {
+        this.nombre = intent.getStringExtra("nombre")
+        this.apellido = intent.getStringExtra("apellido")
+        act_but_nombre_apellido
+                .text = "${nombre} ${apellido}"
     }
 
-    fun enviarcorreo(){
-        val correo = txt1.text
-        val subjet = txt2.text
-        val texto = txt3.text
+    fun enviarIntentCorreo() {
+
+        val correo = but_input_correo.text
+        val subject = but_input_subject.text
+        val texto = but_input_texto.text
 
         val intent = Intent(Intent.ACTION_SEND)
+
         intent.type = "text/html"
-        intent.putExtra(Intent.EXTRA_EMAIL,arrayOf(correo,"eyaselga@hotmail.com"))
-        intent.putExtra(Intent.EXTRA_EMAIL,subjet)
-        intent.putExtra(Intent.EXTRA_TEXT,texto)
+
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(correo, "a@a.com"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject)
+        intent.putExtra(Intent.EXTRA_TEXT, texto)
 
         startActivity(intent)
+
+
     }
+
+
 }

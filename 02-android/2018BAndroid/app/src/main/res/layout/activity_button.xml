@@ -7,74 +7,70 @@
     tools:context=".ButtonActivity">
 
     <TextView
-        android:id="@+id/actv_but_nombre_apellido"
+        android:id="@+id/act_but_nombre_apellido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/titulo_activity_ButtonActivity"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <Button
-        android:id="@+id/boton1enviar"
-        android:layout_width="wrap_content"
+        android:id="@+id/but_but_intent_implicito"
+        android:layout_width="204dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Enviar"
-        app:layout_constraintEnd_toEndOf="@+id/actv_but_nombre_apellido"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toStartOf="@+id/actv_but_nombre_apellido"
-        app:layout_constraintTop_toBottomOf="@+id/txt3" />
-
-    <EditText
-        android:id="@+id/txt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:contentDescription="Correo"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/titulo_correo"
-        app:layout_constraintEnd_toEndOf="@+id/actv_but_nombre_apellido"
-        app:layout_constraintStart_toStartOf="@+id/actv_but_nombre_apellido"
-        app:layout_constraintTop_toBottomOf="@+id/actv_but_nombre_apellido" />
-
-    <EditText
-        android:id="@+id/txt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/titulo_asunto"
-        app:layout_constraintEnd_toEndOf="@+id/txt1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/txt1"
-        app:layout_constraintTop_toBottomOf="@+id/txt1" />
+        android:layout_marginTop="24dp"
+        android:text="Enviar Intent Implicito"
+        app:layout_constraintEnd_toEndOf="@+id/but_input_texto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/but_input_texto"
+        app:layout_constraintTop_toBottomOf="@+id/but_input_texto" />
 
     <EditText
-        android:id="@+id/txt3"
+        android:id="@+id/but_input_correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:contentDescription="se necesita texto"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/titulo_texto"
-        app:layout_constraintEnd_toEndOf="@+id/txt2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txt2"
-        app:layout_constraintTop_toBottomOf="@+id/txt2" />
+        android:text="Correo"
+        app:layout_constraintEnd_toEndOf="@+id/act_but_nombre_apellido"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/act_but_nombre_apellido"
+        app:layout_constraintTop_toBottomOf="@+id/act_but_nombre_apellido" />
 
+    <EditText
+        android:id="@+id/but_input_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Subject"
+        app:layout_constraintEnd_toEndOf="@+id/but_input_correo"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/but_input_correo"
+        app:layout_constraintTop_toBottomOf="@+id/but_input_correo" />
+
+    <EditText
+        android:id="@+id/but_input_texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Texto"
+        app:layout_constraintEnd_toEndOf="@+id/but_input_subject"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/but_input_subject"
+        app:layout_constraintTop_toBottomOf="@+id/but_input_subject" />
 </android.support.constraint.ConstraintLayout>

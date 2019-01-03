@@ -17,45 +17,54 @@ class AdaptadorActivity : AppCompatActivity() {
 
         val arregloUsuarios = ArrayList<Usuario>();
 
-        val usuarioUno = Usuario("Ernesto",22,Date(1996,10,28),18.00)
-        val usuarioDos = Usuario("Daniel",12,Date(2006,10,28),18.00)
-
+        val usuarioUno = Usuario(
+                "Adrian",
+                29,
+                Date(1989, 6, 10),
+                12.00)
+        val usuarioDos = Usuario(
+                "Vicente",
+                32,
+                Date(1912, 3, 23),
+                15.00)
         arregloUsuarios.add(usuarioUno)
         arregloUsuarios.add(usuarioDos)
 
+        // ADAPTADOR
 
-        //ADAPTADOR
-        //CREAR
-        val adaptadorUsuario = ArrayAdapter<Usuario>(
+        val adaptadorUsuarios = ArrayAdapter<Usuario>(
                 this,
                 android.R.layout.simple_spinner_dropdown_item,
                 arregloUsuarios
         )
-        //SETEAR EL ADAPTADOR
-        spinner_usuario.adapter = adaptadorUsuario
+        // Seteo el adaptador
+        spinner_usuarios.adapter = adaptadorUsuarios
 
-        //ESCUCHAR LOS EVENTOS DEL MISMO
-        spinner_usuario.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long) {
-                Log.i("adaptador","${parent}")
-                Log.i("adaptador","${view}")
-                Log.i("adaptador","${position}")
-                Log.i("adaptador","${id}")
-                val usuario = arregloUsuarios[position]
-                Log.i("adaptador","${usuario.nombre}")
+        // Escucho evento
+        spinner_usuarios
+                .onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                            parent: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long) {
+                        Log.i("adaptador", "${parent}")
+                        Log.i("adaptador", "${view}")
+                        Log.i("adaptador", "${position}")
+                        Log.i("adaptador", "${id}")
+                        val usuario = arregloUsuarios[position]
+                        Log.i("adaptador", "${usuario.nombre}")
+                    }
 
-            }
+                    override fun onNothingSelected(
+                            parent: AdapterView<*>?) {
+                        Log.i("adaptador", "${parent}")
+                    }
+                }
 
-            override fun onNothingSelected(
-                    parent: AdapterView<*>?) {
-                Log.i("adaptador","${parent}")
-            }
-
-        }
 
     }
+
+
 }

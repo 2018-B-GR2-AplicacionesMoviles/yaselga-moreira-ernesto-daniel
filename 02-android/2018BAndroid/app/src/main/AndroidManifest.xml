@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ButtonActivity" />
-        <activity android:name=".Respuesta_Activity">
+        <activity android:name=".IntentRespuestaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -28,13 +28,11 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
-        <activity android:name=".activity_resultado_propio" />
-        <activity android:name=".CicloDeVidaActivity" />
+        <activity android:name=".ResultadoPropioActivity" />
+        <activity android:name=".CicloVidaActivity" />
         <activity android:name=".ParcelableActivity" />
-        <activity android:name=".AdaptadorActivity"></activity>
+        <activity android:name=".AdaptadorActivity" />
+        <activity android:name=".ReciclerViewActivity" />
     </application>
 
 </manifest>

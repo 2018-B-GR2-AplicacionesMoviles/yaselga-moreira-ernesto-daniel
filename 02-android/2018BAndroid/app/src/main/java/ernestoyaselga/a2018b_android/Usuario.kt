@@ -4,30 +4,30 @@ import android.os.Parcel
 import android.os.Parcelable
 import java.util.*
 
-//transformar una clase a parcelable para poder enviarlas en un intent
-class Usuario(var nombre: String,
-              var edad:Int,
-              var fechanavimiento:Date,
-              var sueldo:Double): Parcelable { //class nombre-de-la-calse (primer constructor)
-    //segundo constructor
+class Usuario(public var nombre: String,
+              var edad: Int,
+              var fechaNacimiento: Date,
+              var sueldo: Double) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readInt(),
             parcel.readSerializable() as Date,
-            parcel.readSerializable() as Double) {
+            parcel.readDouble()) {
     }
-
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(nombre)
         parcel.writeInt(edad)
-        parcel.writeSerializable(fechanavimiento)
+        parcel.writeSerializable(fechaNacimiento)
         parcel.writeDouble(sueldo)
-
     }
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    override fun toString(): String {
+        return "${nombre}"
     }
 
     companion object CREATOR : Parcelable.Creator<Usuario> {
@@ -39,8 +39,7 @@ class Usuario(var nombre: String,
             return arrayOfNulls(size)
         }
     }
-
-    override fun toString(): String {
-        return "${nombre}"
-    }
 }
+
+
+// val adrian = Usuario("asdasd")
