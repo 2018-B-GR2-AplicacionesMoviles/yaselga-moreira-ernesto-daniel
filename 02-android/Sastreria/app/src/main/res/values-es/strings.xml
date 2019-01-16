@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sastreria</string>
-    <string name="title_menu">Sastreria</string>
-    <string name="title_catalogo">Catalogo</string>
+    <string name="app_name">Sastrería</string>
+    <string name="title_menu">Sastrería</string>
+    <string name="title_catalogo">Catálogo</string>
     <string name="title_clientes">Clientes</string>
     <string name="title_pedidos">Pedidos</string>
 </resources>

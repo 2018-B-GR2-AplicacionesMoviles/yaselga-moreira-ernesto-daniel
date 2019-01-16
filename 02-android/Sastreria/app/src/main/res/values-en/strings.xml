@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tailor Shop</string>
+    <string name="title_menu">Tailor Shop</string>
+    <string name="title_catalogo">Catalogue</string>
+    <string name="title_clientes">customers</string>
+    <string name="title_pedidos">Orders</string>
+</resources>
