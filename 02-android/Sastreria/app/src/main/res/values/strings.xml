@@ -5,4 +5,13 @@
     <string name="title_catalogo">Catalogo</string>
     <string name="title_clientes">Clientes</string>
     <string name="title_pedidos">Pedidos</string>
+
+    <string name="catalogo_button_ver">PEDIR</string>
+
+    <string name="clientes_editText_id">ID</string>
+    <string name="clientes_editText_nombre">Nombre y Apellido</string>
+    <string name="clientes_editText_telefono">Telefono</string>
+    <string name="clientes_button_Borrar">BORRAR</string>
+    <string name="clientes_button_Editar">EDITAR</string>
+    <string name="clientes_button_Crear">CREAR</string>
 </resources>

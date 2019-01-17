@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/catalogo_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <Button
+            android:id="@+id/catalogo_button_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/catalogo_button_ver"
+            app:layout_constraintEnd_toEndOf="@+id/catalogo_textView_precio"
+            app:layout_constraintStart_toStartOf="@+id/catalogo_textView_precio"
+            app:layout_constraintTop_toBottomOf="@+id/catalogo_textView_precio" />
+
+        <TextView
+            android:id="@+id/catalogo_textView_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/catalogo_imageView"
+            app:layout_constraintStart_toStartOf="@+id/catalogo_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/catalogo_imageView" />
+
+        <TextView
+            android:id="@+id/catalogo_textView_material"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/catalogo_textView_nombre"
+            app:layout_constraintStart_toStartOf="@+id/catalogo_textView_nombre"
+            app:layout_constraintTop_toBottomOf="@+id/catalogo_textView_nombre" />
+
+        <TextView
+            android:id="@+id/catalogo_textView_precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/catalogo_textView_material"
+            app:layout_constraintStart_toStartOf="@+id/catalogo_textView_material"
+            app:layout_constraintTop_toBottomOf="@+id/catalogo_textView_material" />
+    </android.support.constraint.ConstraintLayout>
+</RelativeLayout>
