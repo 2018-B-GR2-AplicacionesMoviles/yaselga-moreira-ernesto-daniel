@@ -1,7 +1,14 @@
 package yasmo.sastreria
 
+import android.content.ContentValues
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
+import android.provider.ContactsContract
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -29,11 +36,32 @@ class Clientes : AppCompatActivity() {
         clientes_recyclerView.adapter = adaptador
 
         adaptador.notifyDataSetChanged()
+
+        clientes_button_create.setOnClickListener {
+            crearCliente()
+        }
+    }
+
+    fun crearCliente(){
+        var nuevoCliente = Persona(clientes_editText_nombre.text.toString(), clientes_editText_id.text.toString(), clientes_editText_telefono.text.toString())
+        ClientesDB.clientes.add(nuevoCliente)
+
+    }
+    fun borrarCliente(){
+        var ClienteCondenado = Persona(clientes_editText_nombre.text.toString(), clientes_editText_id.text.toString(), clientes_editText_telefono.text.toString())
+        ClientesDB.clientes.remove(ClienteCondenado)
+    }
+    fun editarCliente(){
+        //leer el obtenido del llenado de datos
+        var ClienteCondenado = Persona(clientes_editText_nombre.text.toString(), clientes_editText_id.text.toString(), clientes_editText_telefono.text.toString())
+        ClientesDB.clientes.add(ClienteCondenado)
     }
 
 }
 
-class Persona(var nombre: String, var cedula: String, var telefono:String) {}
+//class Persona(var nombre: String, var cedula: String, var telefono:String) {}
+
+
 
 
 class PersonasAdaptador(private val listaPersonas: List<Persona>,
@@ -46,6 +74,8 @@ class PersonasAdaptador(private val listaPersonas: List<Persona>,
         var nombreTextView: TextView
         var cedulaTextView: TextView
         var telefonoTextView: TextView
+
+        var cliente = listaPersonas
 
 
         init {
@@ -77,6 +107,7 @@ class PersonasAdaptador(private val listaPersonas: List<Persona>,
                                 Toast.LENGTH_LONG
                         )
                         toast.show()
+
 
                         //ClientesDB.crearMas()
                         val layoutManager = LinearLayoutManager(contexto)
@@ -122,10 +153,43 @@ class PersonasAdaptador(private val listaPersonas: List<Persona>,
     }
 
 }
+data class Persona(var nombre: String, var cedula: String, var telefono:String):Parcelable{
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
+        dest?.writeString(nombre)
+        dest?.writeString(cedula)
+        dest?.writeString(telefono)
+    }
+
+    override fun describeContents(): Int {
+        return  0
+
+    }
+
+    companion object CREATOR : Parcelable.Creator<Persona> {
+        override fun newArray(size: Int): Array<Persona?> {
+            return arrayOfNulls(size)
+        }
+
+        override fun createFromParcel(source: Parcel?): Persona {
+            return Persona(source!!)
+        }
+
+    }
+}
 
 class ClientesDB{
     companion object {
         val clientes = ArrayList<Persona>()
+
+        fun addCliente(cliente: Persona){
+            clientes.add(cliente)
+        }
 
         fun crearMas() {
             clientes.add(Persona("Juan Perez",      "153331XXXX", "0955487652"))
@@ -134,11 +198,3 @@ class ClientesDB{
         }
     }
 }
-
-
-
-
-
-
-
-
