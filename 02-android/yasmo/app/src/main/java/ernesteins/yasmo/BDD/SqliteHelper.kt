@@ -73,6 +73,9 @@ class SqliteHelper(context: Context?) :
         val insertarcatalogo5 = "Insert into catalogo (descripcion,material,color) values ('Pantalon','poliester','azul');"
 
         val insertarCliente = "Insert into cliente (id_cliente,nombre,telefono) values ('1725158123','Ernesto Yaselga','0995193611');"
+        val insertarCliente1 = "Insert into cliente (id_cliente,nombre,telefono) values ('1725158122','Otto Olga','0934593621');"
+
+
         val insertarPedido = "Insert into pedido (id_pedido,id_cliente,id_prenda,precio_total) values ('1','1725158123','3','4000');"
 
         baseDeDatos?.execSQL(crearTablaCliente)
@@ -81,6 +84,7 @@ class SqliteHelper(context: Context?) :
         //baseDeDatos?.execSQL(crearTablaDetalle)
 
         baseDeDatos?.execSQL(insertarCliente)
+        baseDeDatos?.execSQL(insertarCliente1)
         baseDeDatos?.execSQL(insertarcatalogo1)
         baseDeDatos?.execSQL(insertarcatalogo2)
         baseDeDatos?.execSQL(insertarcatalogo3)
@@ -93,6 +97,7 @@ class SqliteHelper(context: Context?) :
     override fun onUpgrade(baseDeDatos: SQLiteDatabase?,
                            antiguaVersion: Int,
                            nuevaVersion: Int) {
+        baseDeDatos?.execSQL("detach database yasmoDB")
 
     }
 
@@ -258,7 +263,7 @@ class SqliteHelper(context: Context?) :
 
     //Pedido
     fun getPedido(pedidos: ArrayList<Pedido>){
-        val statement = "select id_pedido, id_cliente, id_prenda, precio_total from pedidos;"
+        val statement = "select id_pedido, id_cliente, id_prenda, precio_total from pedido;"
         val dbReadable = readableDatabase
         val resultado = dbReadable.rawQuery(statement, null)
         pedidos.clear()

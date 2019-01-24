@@ -12,9 +12,9 @@ class Pedido(val id_pedido: String, val id_cliente: String, val id_prenda: Strin
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(id_prenda)
-        parcel.writeString(id_cliente)
         parcel.writeString(id_pedido)
+        parcel.writeString(id_cliente)
+        parcel.writeString(id_prenda)
         parcel.writeInt(precio_total)
     }
 

@@ -1,5 +1,4 @@
 package ernesteins.yasmo.Catalogo
-
 import android.content.Context
 import android.content.Intent
 import android.support.v4.content.ContextCompat
@@ -10,18 +9,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import ernesteins.yasmo.R
-
 import ernesteins.yasmo.Catalogo.PrendaFragment.OnListFragmentInteractionListener
-import ernesteins.yasmo.Catalogo.PrendaContent
-import ernesteins.yasmo.Catalogo.Prenda
 import ernesteins.yasmo.Pedidos.EditarPedidoActivity
 import kotlinx.android.synthetic.main.fragment_prenda.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyPrendaRecyclerViewAdapter(
         private val mValues: List<Prenda>,
         private val mListener: OnListFragmentInteractionListener?,private val context: Context)
@@ -32,8 +23,6 @@ class MyPrendaRecyclerViewAdapter(
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as Prenda
-            // Notify the active callbacks interface (the activity, if the fragment is attached to
-            // one) that an item has been selected.
             mListener?.onListFragmentInteraction(item)
         }
     }

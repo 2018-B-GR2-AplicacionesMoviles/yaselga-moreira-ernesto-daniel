@@ -11,14 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import ernesteins.yasmo.BDD.BDD.Companion.Catalogo
 import ernesteins.yasmo.BDD.SqliteHelper
-import ernesteins.yasmo.Catalogo.Prenda
 import ernesteins.yasmo.R
 
-/**
- * A fragment representing a list of Items.
- * Activities containing this fragment MUST implement the
- * [PrendaFragment.OnListFragmentInteractionListener] interface.
- */
 class PrendaFragment : Fragment() {
 
     // TODO: Customize parameters

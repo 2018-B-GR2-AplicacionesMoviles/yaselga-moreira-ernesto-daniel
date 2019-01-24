@@ -108,9 +108,9 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentTransaction = fragmentManager.beginTransaction()
 
-        val primerFragmento = PedidoFragment()
-        fragmentTransaction.replace(R.id.relativeLayout, primerFragmento)
-        fragmentoActual = primerFragmento
+
+        fragmentTransaction.replace(R.id.relativeLayout, PedidoFragment())
+        fragmentoActual = PedidoFragment()
         fragmentTransaction.commit()
 
     }
