@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">yasmo</string>
+    <string name="title_menu">Tailor Shop</string>
+    <string name="title_catalogo">Catalogue</string>
+    <string name="title_clientes">customers</string>
+    <string name="title_pedidos">Orders</string>
+
+    <string name="clientes_editText_id">ID</string>
+    <string name="clientes_editText_nombre">Name and LastName</string>
+    <string name="clientes_editText_telefono">Phone</string>
+    <string name="label_button_Borrar">DELTE</string>
+    <string name="label_button_Editar">EDIT</string>
+    <string name="label_button_Crear">CREATE</string>
+
+    <string name="prendas_editText_id">ID</string>
+    <string name="prendas_editText_descripcion">Description</string>
+    <string name="prendas_editText_material">Material</string>
+    <string name="prendas_editText_color">Color</string>
+    <string name="prendas_button_Pedido">ORDER</string>
+
+    <string name="title_activity_editar_cliente">EditClient</string>
+</resources>

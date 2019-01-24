@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
        startActivity(intent)
     }
     fun irAclientes(){
-        val intent = Intent(this,Clientes::class.java)
+        val intent = Intent(this,ClienteFragment::class.java)
         startActivity(intent)
     }
     fun irAcpedidos(){

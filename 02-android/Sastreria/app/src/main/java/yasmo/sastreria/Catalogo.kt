@@ -23,7 +23,7 @@ class Catalogo : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         val rv = catalogo_recicler_view
-        val adaptador = PrendasAdaptador(BDD.prendas, this, rv)
+        val adaptador = PrendasAdaptador(BaseDD.prendas, this, rv)
 
         catalogo_recicler_view.layoutManager = layoutManager
         catalogo_recicler_view.itemAnimator = DefaultItemAnimator()
@@ -31,7 +31,7 @@ class Catalogo : AppCompatActivity() {
 
         adaptador.notifyDataSetChanged()
 
-        BDD.crearMas()
+        BaseDD.crearMas()
 
     }
 }
@@ -39,8 +39,8 @@ class Catalogo : AppCompatActivity() {
 class Prenda (var nombre: String, var material: String, var precio:Double) {}
 
 class PrendasAdaptador(private val listaPrendas: List<Prenda>,
-                        private val contexto: Catalogo,
-                        private val recyclerView: RecyclerView) :
+                       private val contexto: Catalogo,
+                       private val recyclerView: RecyclerView) :
         RecyclerView.Adapter<PrendasAdaptador.MyViewHolder>() {
 
 
@@ -54,7 +54,7 @@ class PrendasAdaptador(private val listaPrendas: List<Prenda>,
             materialTextView = view.findViewById(R.id.catalogo_textView_material) as TextView
             precioTextView = view.findViewById(R.id.catalogo_textView_precio) as TextView
 
-           // val layout = view.findViewById(R.id.relative_layout) as RelativeLayout
+            // val layout = view.findViewById(R.id.relative_layout) as RelativeLayout
 
             /*layout.setOnClickListener {
                         val nombreActual = it.findViewById(R.id.catalogo_textView_nombre) as TextView
@@ -74,9 +74,9 @@ class PrendasAdaptador(private val listaPrendas: List<Prenda>,
                 )//cambiar por la funcion de crear pedidos
                 toast.show()
 
-                //BDD.crearMas()
+                //BaseDD.crearMas()
                 val layoutManager = LinearLayoutManager(contexto)
-                val adaptador = PrendasAdaptador(BDD.prendas, contexto, recyclerView)
+                val adaptador = PrendasAdaptador(BaseDD.prendas, contexto, recyclerView)
 
                 recyclerView.layoutManager = layoutManager
                 recyclerView.itemAnimator = DefaultItemAnimator()
@@ -117,7 +117,7 @@ class PrendasAdaptador(private val listaPrendas: List<Prenda>,
         return listaPrendas.size
     }
 }
-class BDD {
+class BaseDD {
     companion object {
         val prendas = ArrayList<Prenda>()
 

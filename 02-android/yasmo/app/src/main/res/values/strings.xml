@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">yasmo</string>
+    <string name="title_menu">Sastrería</string>
+    <string name="title_catalogo">Catálogo</string>
+    <string name="title_clientes">Clientes</string>
+    <string name="title_pedidos">Pedidos</string>
+
+    <string name="clientes_editText_id">ID</string>
+    <string name="clientes_editText_nombre">Nombre</string>
+    <string name="clientes_editText_telefono">Telefono</string>
+
+    <string name="label_button_Borrar">BORRAR</string>
+    <string name="label_button_Editar">EDITAR</string>
+    <string name="label_button_Crear">CREAR</string>
+
+    <string name="prendas_editText_id">ID</string>
+    <string name="prendas_editText_descripcion">Descripcion</string>
+    <string name="prendas_editText_material">Material</string>
+    <string name="prendas_editText_color">Color</string>
+    <string name="prendas_button_Pedido">PEDIR</string>
+
+    <string name="title_activity_editar_cliente">EditarCliente</string>
+
+</resources>

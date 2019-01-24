@@ -75,7 +75,7 @@ class PersonasAdaptador(private val listaPersonas: List<Persona>,
         var cedulaTextView: TextView
         var telefonoTextView: TextView
 
-        var cliente = listaPersonas
+        //var cliente = listaPersonas
 
 
         init {
@@ -153,7 +153,7 @@ class PersonasAdaptador(private val listaPersonas: List<Persona>,
     }
 
 }
-data class Persona(var nombre: String, var cedula: String, var telefono:String):Parcelable{
+data class Persona(var cedula: String, var nombre: String, var telefono:String):Parcelable{
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
