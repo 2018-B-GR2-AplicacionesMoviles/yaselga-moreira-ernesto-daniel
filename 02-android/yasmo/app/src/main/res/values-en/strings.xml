@@ -19,5 +19,11 @@
     <string name="prendas_editText_color">Color</string>
     <string name="label_button_pedir">ORDER</string>
 
+    <string name="pedidos_editText_id">ID</string>
+    <string name="pedidos_editText_descripcion">ID_client</string>
+    <string name="pedidos_editText_material">ID_Clothing</string>
+    <string name="pedidos_editText_color">Total_Cost</string>
+    <string name="label_button_editar">EDIT</string>
+
     <string name="title_activity_editar_cliente">EditClient</string>
 </resources>

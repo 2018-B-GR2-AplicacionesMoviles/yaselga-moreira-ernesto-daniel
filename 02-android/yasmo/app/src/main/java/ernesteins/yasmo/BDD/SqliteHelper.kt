@@ -293,7 +293,7 @@ class SqliteHelper(context: Context?) :
 
         val resultado: Long = dbWriteable
                 .insert(
-                        "pedidos", // Nombre de la tabla
+                        "pedido", // Nombre de la tabla
                         null,
                         cv)
 
@@ -317,7 +317,7 @@ class SqliteHelper(context: Context?) :
 
         val resultado = dbWriteable
                 .update(
-                        "pedidos", // Nombre de la tabla
+                        "pedido", // Nombre de la tabla
                         cv, // Valores a actualizarse
                         "id_pedido=?", // Where
                         arrayOf(id) // Parametros
@@ -331,7 +331,7 @@ class SqliteHelper(context: Context?) :
     fun eliminarPedido(id:String):Boolean{
         val dbWriteable = this.writableDatabase
         val parametros = arrayOf(id)
-        val id_clienteTabla = "prenda"
+        val id_clienteTabla = "pedido"
         val clausulaWhere = "id_pedido = ?"
         val respuesta = dbWriteable.delete(
                 id_clienteTabla,

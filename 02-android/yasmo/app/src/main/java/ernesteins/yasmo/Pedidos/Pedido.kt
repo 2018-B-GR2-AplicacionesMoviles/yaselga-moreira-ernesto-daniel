@@ -28,7 +28,7 @@ class Pedido(val id_pedido: String, val id_cliente: String, val id_prenda: Strin
 
     companion object CREATOR : Parcelable.Creator<Pedido> {
         override fun createFromParcel(parcel: Parcel): Pedido{
-            return createFromParcel(parcel)
+            return Pedido(parcel)
         }
 
         override fun newArray(size: Int): Array<Pedido?> {

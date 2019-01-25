@@ -38,10 +38,10 @@ class MyPedidoRecyclerViewAdapter(
         holder.mIdView.text = item.id_pedido
         holder.mIdClienteView.text = item.id_cliente
         holder.mIdPrendaView.text = item.id_prenda
-        //holder.mPrecioTotalView.text = (item.precio_total/10).toString()
+        holder.mPrecioTotalView.text = item.precio_total.toString()
         holder.mBotonEditarView.setOnClickListener {
             val pedido_n = Pedido(item.id_pedido,item.id_cliente,item.id_prenda,item.precio_total)
-           // irActividadModificar(pedido_n)
+            irActividadModificar(pedido_n)
         }
         with(holder.mView) {
             tag = item
@@ -65,7 +65,7 @@ class MyPedidoRecyclerViewAdapter(
         val mIdView: TextView = mView.pedido_textView_id_producto
         val mIdClienteView: TextView = mView.pedido_textView_id_cliente
         val mIdPrendaView: TextView = mView.pedido_textView_id_producto
-       // val mPrecioTotalView: TextView = mView.pedido_textView_preciototal
+        val mPrecioTotalView: TextView = mView.pedido_textView_preciototal
         val mBotonEditarView: Button = mView.pedido_button_editar
 
         override fun toString(): String {
