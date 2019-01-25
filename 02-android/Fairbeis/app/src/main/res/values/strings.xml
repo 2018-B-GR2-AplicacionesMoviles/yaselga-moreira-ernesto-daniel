@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Fairbeis</string>
+    <string name="btn_label_bcr">Lector de codigo de barras</string>
+    <string name="btn_label_rbc">Tomar foto</string>
+</resources>

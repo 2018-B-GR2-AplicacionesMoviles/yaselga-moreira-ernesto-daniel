@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "257761681844",
+    "firebase_url": "https://proy-moviles-gr2-2018b.firebaseio.com",
+    "project_id": "proy-moviles-gr2-2018b",
+    "storage_bucket": "proy-moviles-gr2-2018b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257761681844:android:2ac727af2879e657",
+        "android_client_info": {
+          "package_name": "ernestoyaselga.fairbeis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257761681844-32fst28160srrc0aeev3c29nmscqeim3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1heiFLVo4cwrsuNPSFGKxfG58YwDZMZQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
