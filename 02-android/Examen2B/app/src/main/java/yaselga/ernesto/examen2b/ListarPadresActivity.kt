@@ -41,7 +41,7 @@ class ListarPadresActivity : AppCompatActivity() {
 
     fun refrescar(){
         finish()
-        val direccion = "http://${BDD.ip}:80/sistemas/api/"
+        val direccion = "http://${BDD.ip}:8000/sistemas/api/"
         Log.i("http",direccion)
         cargarDatosPadre(direccion,fun(){})
         startActivity(getIntent());
@@ -70,7 +70,7 @@ class ListarPadresActivity : AppCompatActivity() {
 
     fun irAlistarHijos(pacientes: Paciente){
 
-        "http://${BDD.ip}:80/sistemas/api/app/?so=${pacientes.pacienteId}".httpGet().responseString{ request, response, result ->
+        "http://${BDD.ip}:8000/sistemas/api/app/?so=${pacientes.pacienteId}".httpGet().responseString{ request, response, result ->
             when (result) {
                 is Result.Failure -> {
                     val ex = result.getException()
@@ -180,10 +180,10 @@ class PacienteAdaptador(private val listaPacientesRegistrados: List<Paciente>,
                                     val id = holder.idPacienteTextView.text.toString()
                                     Log.i("Eliminar SO->",id)
 
-                                    val direccion = "http://${BDD.ip}:80/sistemas/api/"
+                                    val direccion = "http://${BDD.ip}:8000/sistemas/api/"
                                     Log.i("http",direccion)
                                     val parametros = listOf("nombre" to id)
-                                    val url = "http://${BDD.ip}:80/sistemas/api/$id/delete"
+                                    val url = "http://${BDD.ip}:8000/sistemas/api/$id/delete"
                                             .httpDelete(parametros)
                                             .responseString { request, response, result ->
                                                 when (result) {

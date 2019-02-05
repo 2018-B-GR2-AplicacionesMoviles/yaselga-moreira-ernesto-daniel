@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button_listar_padres.setOnClickListener {
-            val direccion = "http://$ip:80/sistemas/api/"
+            val direccion = "http://$ip:8000/sistemas/api/"
             Log.i("http",direccion)
             cargarDatosPadre(direccion,::irActividadListarPadre)
         }

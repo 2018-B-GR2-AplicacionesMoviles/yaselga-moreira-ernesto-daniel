@@ -67,7 +67,7 @@ class ListarHijosActivity : AppCompatActivity() {
 
     fun refrescar(){
         finish()
-        val direccion = "http://${BDD.ip}:80/sistemas/api/app/?so=$id_pac"
+        val direccion = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_pac"
         Log.i("http",direccion)
         cargarDatosHijo(direccion,fun(){})
         startActivity(getIntent())
@@ -185,7 +185,7 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
                                     Log.i("Eliminar Medicamento->",id)
 
                                     val parametros = listOf("nombre" to id)
-                                    val url = "http://${BDD.ip}:80/sistemas/api/app/$id/delete"
+                                    val url = "http://${BDD.ip}:8000/sistemas/api/app/$id/delete"
                                             .httpDelete(parametros)
                                             .responseString { request, response, result ->
                                                 when (result) {
