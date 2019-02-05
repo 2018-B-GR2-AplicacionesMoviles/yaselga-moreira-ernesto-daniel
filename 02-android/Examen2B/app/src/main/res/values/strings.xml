@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Examen2B</string>
+    <string name="ingresar_padre">Ingresar Paciente</string>
+    <string name="editar_padre">Editar Paciente</string>
+    <string name="mostrar_padre">Listar Pacientes</string>
+    <string name="borrar_padre">Borrar Paciente</string>
+    <string name="compartir_padre">Compartir info del Paciente</string>
+
+    <string name="ingresar_hijo">Ingresar Medicamento</string>
+    <string name="editar_hijo">Editar Medicamento</string>
+    <string name="mostrar_hijo">Listar Medicamentos</string>
+    <string name="borrar_hijo">Borrar Medicamento</string>
+    <string name="compartir_hijo">Compartir info del Medicamento</string>
+
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="tomarFoto">TomarFoto</string>
+
+</resources>
