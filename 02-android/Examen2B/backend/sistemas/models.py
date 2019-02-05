@@ -5,7 +5,7 @@ class Paciente(models.Model):
     nombre = models.CharField(max_length=20, null=False, blank=False)
     apellido = models.CharField(null=False, blank=False, max_length=8)
     fechaNacimiento = models.CharField(max_length=20, null=False, blank=False)
-    hijos = models.CharField(null=False, blank=False, max_length=5)
+    hijos = models.IntegerField(null=False, blank=False)
 
 
 class Medicamento(models.Model):
