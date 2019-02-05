@@ -16,4 +16,4 @@ class Aplicacion(models.Model):
     costo = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
     url_descargar = models.CharField(max_length=150, null=False, blank=False)
     codigo_barras = models.CharField(max_length=13, null=False, blank=False)
-    sistemaOperativo = models.ForeignKey(SistemaOperativo, on_delete=models.CASCADE)
+    paciente = models.ForeignKey(SistemaOperativo, on_delete=models.CASCADE)

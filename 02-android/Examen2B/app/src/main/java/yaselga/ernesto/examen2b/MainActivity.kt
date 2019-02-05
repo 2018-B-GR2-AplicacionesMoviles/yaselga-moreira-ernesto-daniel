@@ -13,32 +13,37 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button_listar_padres.setOnClickListener {
+        boton_listar.setOnClickListener {
             val direccion = "http://$ip:8000/sistemas/api/"
             Log.i("http",direccion)
-            cargarDatosPadre(direccion,::irActividadListarPadre)
+            cargarDatosSO(direccion,::irActividadListarOS)
         }
 
-        button_ingresar_padre.setOnClickListener{
-            irActividadCrearPadre()
+        boton_crear_padre.setOnClickListener{
+            irActividadCrearOS()
         }
+
 
     }
 
-    fun irActividadCrearPadre(){
+    fun irActividadCrearOS(){
         val intent = Intent(
                 this,
                 CrearPadre::class.java
         )
         startActivity(intent)
     }
-    fun irActividadListarPadre(){
+
+    fun irActividadListarOS(){
+        finish()
+        // 1 Cargar datos de la API
+        // 2 Ir al Intent
+        // 3 Hacer esa cosa de matar al stack
         val intent = Intent(
                 this,
                 ListarPadresActivity::class.java
         )
         startActivity(intent)
+
     }
-
-
 }

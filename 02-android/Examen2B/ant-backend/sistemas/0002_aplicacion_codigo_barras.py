@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='aplicacion',
+            model_name='medicamento',
             name='codigo_barras',
             field=models.CharField(default=786106704083, max_length=13),
             preserve_default=False,

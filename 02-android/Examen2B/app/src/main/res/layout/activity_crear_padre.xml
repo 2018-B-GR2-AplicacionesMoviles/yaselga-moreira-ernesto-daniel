@@ -7,12 +7,14 @@
     tools:context=".CrearPadre">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TextView_Titulo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="@string/ingresar_padre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,15 +25,17 @@
         style="@android:style/Widget.EditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@color/alert_default_icon_color"
         android:ems="10"
         android:hint="@string/padre1"
         android:inputType="none"
-        app:layout_constraintEnd_toEndOf="@+id/txt_id_padre"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/txt_id_padre"
-        app:layout_constraintTop_toBottomOf="@+id/txt_id_padre" />
+        app:layout_constraintEnd_toEndOf="@+id/TextView_Titulo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/TextView_Titulo"
+        app:layout_constraintTop_toBottomOf="@+id/txt_id_paciente" />
 
     <EditText
         android:id="@+id/txt_apellido"
@@ -39,7 +43,7 @@
 
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@color/alert_default_icon_color"
         android:ems="10"
         android:hint="@string/padre2"
@@ -50,11 +54,11 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_nombre" />
 
     <EditText
-        android:id="@+id/txt_medicamentos"
+        android:id="@+id/txt_hijos"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
 
         android:background="@color/alert_default_icon_color"
         android:ems="10"
@@ -66,56 +70,54 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_fecha" />
 
     <Button
-        android:id="@+id/boton_cancelar_reg_so"
-        android:layout_width="wrap_content"
+        android:id="@+id/boton_cancelar_reg_paciente"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="@string/cancelar"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/boton_registrar_so"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/boton_registrar_so"
-        app:layout_constraintTop_toBottomOf="@+id/boton_registrar_so" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/boton_registrar_so"
-        android:layout_width="wrap_content"
+        android:id="@+id/boton_registrar_paciente"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:text="@string/guardar"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_medicamentos"
-        app:layout_constraintVertical_bias="0.538" />
+        app:layout_constraintStart_toEndOf="@+id/boton_cancelar_reg_paciente" />
 
     <EditText
         android:id="@+id/txt_fecha"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@color/alert_default_icon_color"
         android:ems="10"
         android:hint="@string/padre3"
-        android:inputType="textPersonName"
+        android:inputType="date"
         app:layout_constraintEnd_toEndOf="@+id/txt_apellido"
         app:layout_constraintStart_toStartOf="@+id/txt_apellido"
         app:layout_constraintTop_toBottomOf="@+id/txt_apellido" />
 
     <TextView
-        android:id="@+id/txt_id_padre"
-        android:layout_width="0dp"
+        android:id="@+id/txt_id_paciente"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:hint="@string/padre6"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextView_Titulo" />
 
 </android.support.constraint.ConstraintLayout>

@@ -15,21 +15,22 @@ class CrearPadre : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_padre)
-        val pacienteS = intent.getParcelableExtra<Paciente?>("sistema")
+        val sistema = intent.getParcelableExtra<PacienteSe?>("sistema")
+        //val sistema: Paciente? = null
         var esnuevo = true
 
-        if (pacienteS != null) {
-            txt_id_padre.setText(pacienteS.pacienteId.toString())
-            txt_nombre.setText(pacienteS.nombre)
-            txt_apellido.setText(pacienteS.apellido)
-            txt_fecha.setText(pacienteS.fechaNacimiento)
-            txt_medicamentos.setText(pacienteS.hijos)
+        if (sistema != null) {
+            txt_id_paciente.setText(sistema.id.toString())
+            txt_nombre.setText(sistema.nombre)
+            txt_apellido.setText(sistema.apellido)
+            txt_fecha.setText(sistema.fechaNacimiento)
+            txt_hijos.setText(sistema.hijos.toString())
             esnuevo = false
         }
 
 
 
-        boton_registrar_so.setOnClickListener {
+        boton_registrar_paciente.setOnClickListener {
             if(esnuevo){
                 crearActualizarSO(true)
             }else{
@@ -37,28 +38,28 @@ class CrearPadre : AppCompatActivity() {
             }
         }
 
-        boton_cancelar_reg_so.setOnClickListener {
+        boton_cancelar_reg_paciente.setOnClickListener {
             irInicio()
         }
     }
 
     fun crearActualizarSO(es_nuevo:Boolean){
 
-        val id = txt_id_padre.text.toString()
+        val id = txt_id_paciente.text.toString()
         val nombre = txt_nombre.text.toString()
-        val apellido = txt_apellido.text.toString()
+        val version = txt_apellido.text.toString()
         val fecha = txt_fecha.text.toString()
-        val hijos = txt_medicamentos.text.toString().toInt()
-        val pacienteSO:Paciente
+        val peso = txt_hijos.text.toString()
+        val so:Paciente
         if(es_nuevo){
-            pacienteSO = Paciente(pacienteId =null, nombre = nombre, apellido = apellido, fechaNacimiento = fecha, hijos=  hijos)
+            so = Paciente(id=null,nombre = nombre,apellido =  version,fechaNacimiento =  fecha,hijos =  peso.toInt())
         }else{
-            pacienteSO = Paciente(pacienteId= id.toInt(), nombre = nombre, apellido = apellido, fechaNacimiento = fecha, hijos=  hijos)
+            so = Paciente(id=id.toInt(),nombre = nombre,apellido =  version,fechaNacimiento =  fecha,hijos =  peso.toInt())
         }
 
         //Crear objeto
-        val parametros = listOf("nombre" to pacienteSO.nombre, "apellido" to pacienteSO.apellido,
-                "fechaNacimiento" to pacienteSO.fechaNacimiento, "hijos" to pacienteSO.hijos)
+        val parametros = listOf("nombre" to so.nombre, "apellido" to so.apellido,
+                "fechaNacimiento" to so.fechaNacimiento, "hijos" to so.hijos)
         Log.i("htpp",parametros.toString())
         var direccion = ""
         if(es_nuevo){
@@ -77,12 +78,12 @@ class CrearPadre : AppCompatActivity() {
                                 val data = result.get()
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
-                                cargarDatosPadre(direccion, ::irlistarPacientes)
+                                cargarDatosSO(direccion, ::irlistarSo)
                             }
                         }
                     }
         }else{
-            direccion = "http://$ip:8000/sistemas/api/${pacienteSO.pacienteId}/update"
+            direccion = "http://$ip:8000/sistemas/api/${so.id}/update"
             val url = direccion
                     .httpPut(parametros)
                     .responseString { request, response, result ->
@@ -98,7 +99,7 @@ class CrearPadre : AppCompatActivity() {
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
                                 val redire = "http://$ip:8000/sistemas/api/"
-                                cargarDatosPadre(redire, ::irlistarPacientes)
+                                cargarDatosSO(redire, ::irlistarSo)
                             }
                         }
                     }
@@ -107,7 +108,7 @@ class CrearPadre : AppCompatActivity() {
 
     }
 
-    fun irlistarPacientes(){
+    fun irlistarSo(){
         val intent = Intent(
                 this,
                 ListarPadresActivity::class.java

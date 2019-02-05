@@ -29,28 +29,29 @@ class CrearHijo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_hijo)
+
         btn_tomar_foto.setOnClickListener {
             tomarFoto()
         }
 
-        val medicamento = intent.getParcelableExtra<Medicamento?>("medicamento")
-        val sistemaOperativo = intent.getParcelableExtra<Medicamento?>("sistema")
+        val aplicacion = intent.getParcelableExtra<MedicamentoSe?>("aplicacion")
+        val pacienteVal = intent.getParcelableExtra<PacienteSe?>("sistema")
 
 
         id_so=intent.getIntExtra("id_so",0)
-        //val sistema: SistemaOperativo? = null
+        //val sistema: Paciente? = null
         var esnuevo = true
 
-        if (medicamento != null) {
-            txt_id_app.setText(medicamento.IDMed.toString())
-            txt_nombre_app.setText(medicamento.nombre)
-            txt_version_app.setText(medicamento.composicion)
-            txt_fecha_app.setText(medicamento.fechaCaducidad)
-            txt_peso_app.setText(medicamento.gramosAingerir)
-            txt_costo_app.setText(medicamento.numeroPastillas)
-            txt_url_download.setText(medicamento.usadoPara)
-            txt_codigo.setText(medicamento.codigo_barras)
-            id_so=medicamento.paciente
+        if (aplicacion != null) {
+            txt_id_medicamento.setText(aplicacion.id.toString())
+            txt_nombre_med.setText(aplicacion.nombre)
+            txt_composicion_med.setText(aplicacion.composicion)
+            txt_fecha_app.setText(aplicacion.fechaCaducidad)
+            txt_gramosAingerir.setText(aplicacion.gramosAingerir)
+            txt_numero_pastillas.setText(aplicacion.numeroPastillas.toString())
+            txt_usos.setText(aplicacion.usadoPara)
+            txt_id_med.setText(aplicacion.codigo_barras)
+            id_so=aplicacion.paciente
             esnuevo = false
         }
 
@@ -65,8 +66,8 @@ class CrearHijo : AppCompatActivity() {
         }
 
         btn_cancelar_app.setOnClickListener {
-            val redire = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
-            cargarDatosHijo(redire,::irlistarApp)
+            val redire = "http://${BDD.ip}:8000/sistemas/api/app/?id=$id_so"
+            cargarDatosApp(redire,::irlistarApp)
         }
 
 
@@ -106,7 +107,7 @@ class CrearHijo : AppCompatActivity() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         val photoURI: Uri = FileProvider.getUriForFile(
                 this,
-                "com.example.andres.examenapp2",
+                "yaselga.ernesto.examen2b",
                 archivo)
         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
         if (takePictureIntent.resolveActivity(packageManager) != null) {
@@ -157,7 +158,7 @@ class CrearHijo : AppCompatActivity() {
 
                         respuestaBarcode.add(rawValue.toString())
                     }
-                    txt_codigo.setText(respuestaBarcode[1])
+                    txt_id_med.setText(respuestaBarcode[1])
                 }
                 .addOnFailureListener {
                     Log.i("info", "------- No reconocio nada")
@@ -166,32 +167,32 @@ class CrearHijo : AppCompatActivity() {
 
     fun crearActualizarAPP(es_nuevo:Boolean){
 
-        val id = txt_id_app.text.toString()
-        val nombre = txt_nombre_app.text.toString()
-        val version = txt_version_app.text.toString()
+        val id = txt_id_medicamento.text.toString()
+        val nombre = txt_nombre_med.text.toString()
+        val composicion = txt_composicion_med.text.toString()
         val fecha = txt_fecha_app.text.toString()
-        val peso = txt_peso_app.text.toString()
-        val costo = txt_costo_app.text.toString().toInt()
-        val url_descargar = txt_url_download.text.toString()
-        val codigo_barras = txt_codigo.text.toString()
+        val gramosAingerir = txt_gramosAingerir.text.toString()
+        val numeroPastillas = txt_numero_pastillas.text.toString()
+        val usadoPara = txt_usos.text.toString()
+        val codigo_barras = txt_id_med.text.toString()
 
         val app:Medicamento
         if(es_nuevo){
-            app = Medicamento(IDMed= null,nombre = nombre,composicion=  version,fechaCaducidad=  fecha,gramosAingerir=  peso,numeroPastillas= costo,usadoPara= url_descargar,codigo_barras = codigo_barras,paciente= id_so)
+            app = Medicamento(id=null,nombre = nombre,composicion =  composicion,fechaCaducidad =  fecha,gramosAingerir =  gramosAingerir,numeroPastillas = numeroPastillas.toInt(),usadoPara = usadoPara,codigo_barras = codigo_barras,paciente = id_so)
         }else{
-            app = Medicamento(IDMed= id.toInt(),nombre = nombre,composicion=  version,fechaCaducidad=  fecha,gramosAingerir=  peso,numeroPastillas= costo,usadoPara= url_descargar,codigo_barras = codigo_barras,paciente= id_so)
+            app = Medicamento(id=id.toInt(),nombre = nombre,composicion =  composicion,fechaCaducidad =  fecha,gramosAingerir =  gramosAingerir,numeroPastillas = numeroPastillas.toInt(),usadoPara = usadoPara,codigo_barras = codigo_barras,paciente = id_so)
         }
 
         //Crear objeto
         val parametros = listOf(
                 "nombre" to app.nombre,
-                "version" to app.composicion,
-                "fechaLanzamiento" to app.fechaCaducidad,
-                "peso_gigas" to app.gramosAingerir,
-                "costo" to app.numeroPastillas,
-                "url_descargar" to app.usadoPara,
+                "composicion" to app.composicion,
+                "fechaCaducidad" to app.fechaCaducidad,
+                "gramosAingerir" to app.gramosAingerir,
+                "numeroPastillas" to app.numeroPastillas,
+                "usadoPara" to app.usadoPara,
                 "codigo_barras" to app.codigo_barras,
-                "sistemaOperativo" to app.paciente
+                "paciente" to app.paciente
         )
         Log.i("htpp",parametros.toString())
         var direccion = ""
@@ -211,13 +212,13 @@ class CrearHijo : AppCompatActivity() {
                                 val data = result.get()
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
-                                val redire = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
-                                cargarDatosHijo(redire,::irlistarApp)
+                                val redire = "http://${BDD.ip}:8000/sistemas/api/app/?id=$id_so"
+                                cargarDatosApp(redire,::irlistarApp)
                             }
                         }
                     }
         }else{
-            direccion = "http://${BDD.ip}:8000/sistemas/api/app/${app.IDMed}/update"
+            direccion = "http://${BDD.ip}:8000/sistemas/api/app/${app.id}/update"
             val url = direccion
                     .httpPut(parametros)
                     .responseString { request, response, result ->
@@ -232,8 +233,8 @@ class CrearHijo : AppCompatActivity() {
                                 val data = result.get()
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
-                                val redire = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
-                                cargarDatosHijo(redire,::irlistarApp)
+                                val redire = "http://${BDD.ip}:8000/sistemas/api/app/?id=$id_so"
+                                cargarDatosApp(redire,::irlistarApp)
                             }
                         }
                     }
@@ -241,6 +242,8 @@ class CrearHijo : AppCompatActivity() {
         Log.i("http",direccion)
 
     }
+
+
 
     companion object {
         val TOMAR_FOTO_REQUEST = 1;

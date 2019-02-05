@@ -8,11 +8,14 @@ import android.util.Log
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result
 import com.beust.klaxon.Klaxon
-import yaselga.ernesto.examen2b.BDD.Companion.Pacientes
+//import yaselga.ernesto.examen2b.BDD.Companion.Pacientes
+//import yaselga.ernesto.examen2b.BDD.Companion.Medicamentos
 import yaselga.ernesto.examen2b.BDD.Companion.Medicamentos
+import yaselga.ernesto.examen2b.BDD.Companion.Pacientes
 
 
-fun mensaje(actividad: Activity, tipo: String, contenido:String){
+fun mensaje(actividad:Activity,tipo: String,contenido:String){
+
 
     com.tapadoo.alerter.Alerter.create(actividad)
             .setTitle(tipo)
@@ -21,7 +24,7 @@ fun mensaje(actividad: Activity, tipo: String, contenido:String){
 }
 
 
-fun mensaje_dialogo(actividad: Activity, contenido:String, funcion: () -> Unit){
+fun mensaje_dialogo(actividad:Activity,contenido:String,funcion: () -> Unit){
     val builder = AlertDialog.Builder(actividad)
 
     builder
@@ -43,7 +46,7 @@ fun mensaje_dialogo(actividad: Activity, contenido:String, funcion: () -> Unit){
     dialogo.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLUE)
 }
 
-fun cargarDatosPadre(url:String, funcion_intent: () -> Unit){
+fun cargarDatosSO(url:String,funcion_intent: () -> Unit){
     url.httpGet().responseString{request, response, result ->
         when (result) {
             is Result.Failure -> {
@@ -71,7 +74,7 @@ fun cargarDatosPadre(url:String, funcion_intent: () -> Unit){
 
 }
 
-fun cargarDatosHijo(url:String, funcion_intent: () -> Unit){
+fun cargarDatosApp(url:String,funcion_intent: () -> Unit){
     url.httpGet().responseString{request, response, result ->
         when (result) {
             is Result.Failure -> {

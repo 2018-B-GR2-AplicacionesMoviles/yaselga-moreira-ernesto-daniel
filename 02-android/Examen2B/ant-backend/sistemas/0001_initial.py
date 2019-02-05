@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='aplicacion',
+            model_name='medicamento',
             name='paciente',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='sistemas.Paciente'),
         ),

@@ -19,20 +19,22 @@ import com.github.kittinunf.result.Result
 import kotlinx.android.synthetic.main.activity_listar_hijos.*
 import yaselga.ernesto.examen2b.BDD.Companion.Medicamentos
 
+//import yaselga.ernesto.examen2b.BDD.Companion.Medicamentos
+
 class ListarHijosActivity : AppCompatActivity() {
-    var id_pac = 0
+    var id_so = 0
     var id_res = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar_hijos)
-        id_res = intent.getIntExtra("id_pac",0)
+        id_res = intent.getIntExtra("id_so",0)
 
-        var sistema:Paciente
+        var sistema:PacienteSe
         if(id_res ==0){
-            sistema = intent.getParcelableExtra<Paciente>("sistema")
+            sistema = intent.getParcelableExtra<PacienteSe>("sistema")
         }else{
-            var so = BDD.Pacientes.filter { it.pacienteId==id_res }[0]
-            sistema= Paciente(
+            var so = BDD.Pacientes.filter { it.id==id_res }[0]
+            sistema= PacienteSe(
                     id_res,
                     nombre = so.nombre,
                     apellido = so.apellido,
@@ -41,13 +43,13 @@ class ListarHijosActivity : AppCompatActivity() {
             )
         }
 
-        id_pac = sistema.pacienteId!!
+        id_so = sistema.id!!
 
 
-        txt_nombre_so_parce.setText(sistema.nombre)
-        txt_version_so_parce.setText(sistema.apellido)
+        txt_nombre_cliente_parce.setText(sistema.nombre)
+        txt_apellido_parce.setText(sistema.apellido)
 
-        btn_nuevo_app
+        btn_nuevo_medicamento
                 .setOnClickListener {
                     irACrearHijo()
                 }
@@ -67,9 +69,9 @@ class ListarHijosActivity : AppCompatActivity() {
 
     fun refrescar(){
         finish()
-        val direccion = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_pac"
+        val direccion = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
         Log.i("http",direccion)
-        cargarDatosHijo(direccion,fun(){})
+        cargarDatosApp(direccion,fun(){})
         startActivity(getIntent())
     }
 
@@ -83,13 +85,13 @@ class ListarHijosActivity : AppCompatActivity() {
     }
 
 
-    fun irActualizar(aplicacion: Medicamento){
+    fun irActualizar(medicamento: MedicamentoSe){
         val intentActividadIntent = Intent(
                 this,
                 CrearHijo::class.java
         )
 
-        intentActividadIntent.putExtra("aplicacion",aplicacion)
+        intentActividadIntent.putExtra("Medicamento",medicamento)
         startActivity(intentActividadIntent)
 
     }
@@ -100,7 +102,7 @@ class ListarHijosActivity : AppCompatActivity() {
                 this,
                 CrearHijo::class.java
         )
-        intentActividadIntent.putExtra("id_pac",id_pac)
+        intentActividadIntent.putExtra("id_so",id_so)
         startActivity(intentActividadIntent)
     }
 }
@@ -108,7 +110,7 @@ class ListarHijosActivity : AppCompatActivity() {
 
 
 
-class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
+class AppAdaptador(private val listaMedicamentos: List<Medicamento>,
                    private val contexto: ListarHijosActivity,
                    private val recyclerView: RecyclerView) :
         RecyclerView.Adapter<AppAdaptador.MyViewHolder>() {
@@ -116,14 +118,14 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var nombreTextView: TextView
-        var composicionTextView: TextView
+        var versionTextView: TextView
         var idAppTextView: TextView
-        var opciones: Button
+        var opciones:Button
 
         init {
-            nombreTextView = view.findViewById(R.id.txt_nombre_app) as TextView
-            composicionTextView = view.findViewById(R.id.txt_version_app) as TextView
-            idAppTextView = view.findViewById(R.id.txt_hijo_id) as TextView
+            nombreTextView = view.findViewById(R.id.txt_nombre_med) as TextView
+            versionTextView = view.findViewById(R.id.txt_composicion_med) as TextView
+            idAppTextView = view.findViewById(R.id.txt_med_id) as TextView
             opciones = view.findViewById(R.id.btn_opciones_app) as Button
 
 
@@ -136,7 +138,7 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
 
             layout
                     .setOnClickListener {
-                        val nombreActual = it.findViewById(R.id.txt_nombre_app) as TextView
+                        val nombreActual = it.findViewById(R.id.txt_nombre_med) as TextView
 
                         Log.i("recycler-view",
                                 "El nombre actual es: ${nombreActual.text}")
@@ -166,11 +168,11 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
 
     // Llenamos los datos del layout
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val aplicacion = listaAplicaciones[position]
+        val aplicacion = listaMedicamentos[position]
 
         holder.nombreTextView.setText(aplicacion.nombre)
-        holder.composicionTextView.setText(aplicacion.composicion)
-        holder.idAppTextView.setText(aplicacion.IDMed.toString())
+        holder.versionTextView.setText(aplicacion.composicion)
+        holder.idAppTextView.setText(aplicacion.id.toString())
         holder.opciones.setOnClickListener {
             val popup = PopupMenu(contexto, holder.idAppTextView)
             popup.inflate(R.menu.options_menu)
@@ -179,10 +181,10 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
                 when (item.getItemId()) {
                     R.id.eliminar_so ->{
                         //handle menu1 click
-                        mensaje_dialogo(contexto,"Eliminar la Mediacion?",
+                        mensaje_dialogo(contexto,"Eliminar la APP?",
                                 fun (){
                                     val id = holder.idAppTextView.text.toString()
-                                    Log.i("Eliminar Medicamento->",id)
+                                    Log.i("Eliminar APP->",id)
 
                                     val parametros = listOf("nombre" to id)
                                     val url = "http://${BDD.ip}:8000/sistemas/api/app/$id/delete"
@@ -217,11 +219,11 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
 
                     R.id.editar_so ->{
                         val id = holder.idAppTextView.text.toString()
-                        mensaje_dialogo(contexto,"Desea editar la medicación?",
+                        mensaje_dialogo(contexto,"Desea editar la Medicamento?",
                                 fun(){
-                                    val app = Medicamentos.filter { it.IDMed==id.toInt() }[0]
-                                    Log.i("Actualizar Paciente->",app.fechaCaducidad)
-                                    val appSerializada = Medicamento(
+                                    val app = Medicamentos.filter { it.id==id.toInt() }[0]
+                                    Log.i("Actualizar SO->",app.fechaCaducidad)
+                                    val appSerializada = MedicamentoSe(
                                             id.toInt(),
                                             nombre = app.nombre,
                                             composicion = app.composicion,
@@ -240,7 +242,7 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
                         true
                     }
 
-                    R.id.compartir_paciente->{
+                    R.id.compartir_so ->{
                         val nombre = holder.nombreTextView.text.toString()
                         contexto.compartir(nombre)
                         //handle menu3 click
@@ -256,7 +258,7 @@ class AppAdaptador(private val listaAplicaciones: List<Medicamento>,
     }
 
     override fun getItemCount(): Int {
-        return listaAplicaciones.size
+        return listaMedicamentos.size
     }
 
 
