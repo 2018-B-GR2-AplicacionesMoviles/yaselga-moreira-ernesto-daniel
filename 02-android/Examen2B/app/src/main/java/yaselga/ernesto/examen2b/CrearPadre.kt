@@ -57,12 +57,12 @@ class CrearPadre : AppCompatActivity() {
         }
 
         //Crear objeto
-        val parametros = listOf("nombre" to pacienteSO.nombre, "version" to pacienteSO.apellido,
-                "fechaLanzamiento" to pacienteSO.fechaNacimiento, "peso_gigas" to pacienteSO.hijos)
+        val parametros = listOf("nombre" to pacienteSO.nombre, "apellido" to pacienteSO.apellido,
+                "fechaNacimiento" to pacienteSO.fechaNacimiento, "hijos" to pacienteSO.hijos)
         Log.i("htpp",parametros.toString())
         var direccion = ""
         if(es_nuevo){
-            direccion = "http://$ip:80/sistemas/api/"
+            direccion = "http://$ip:8000/sistemas/api/"
             val url = direccion
                     .httpPost(parametros)
                     .responseString { request, response, result ->
@@ -82,7 +82,7 @@ class CrearPadre : AppCompatActivity() {
                         }
                     }
         }else{
-            direccion = "http://$ip:80/sistemas/api/${pacienteSO.pacienteId}/update"
+            direccion = "http://$ip:8000/sistemas/api/${pacienteSO.pacienteId}/update"
             val url = direccion
                     .httpPut(parametros)
                     .responseString { request, response, result ->
@@ -97,7 +97,7 @@ class CrearPadre : AppCompatActivity() {
                                 val data = result.get()
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
-                                val redire = "http://$ip:80/sistemas/api/"
+                                val redire = "http://$ip:8000/sistemas/api/"
                                 cargarDatosPadre(redire, ::irlistarSo)
                             }
                         }
