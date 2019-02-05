@@ -33,7 +33,7 @@ class CrearHijo : AppCompatActivity() {
             tomarFoto()
         }
 
-        val medicamento = intent.getParcelableExtra<Medicamento?>("aplicacion")
+        val medicamento = intent.getParcelableExtra<Medicamento?>("medicamento")
         val sistemaOperativo = intent.getParcelableExtra<Medicamento?>("sistema")
 
 
@@ -65,7 +65,7 @@ class CrearHijo : AppCompatActivity() {
         }
 
         btn_cancelar_app.setOnClickListener {
-            val redire = "http://${BDD.ip}:80/sistemas/api/app/?so=$id_so"
+            val redire = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
             cargarDatosHijo(redire,::irlistarApp)
         }
 
@@ -196,7 +196,7 @@ class CrearHijo : AppCompatActivity() {
         Log.i("htpp",parametros.toString())
         var direccion = ""
         if(es_nuevo){
-            direccion = "http://${BDD.ip}:80/sistemas/api/app/"
+            direccion = "http://${BDD.ip}:8000/sistemas/api/app/"
             val url = direccion
                     .httpPost(parametros)
                     .responseString { request, response, result ->
@@ -211,13 +211,13 @@ class CrearHijo : AppCompatActivity() {
                                 val data = result.get()
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
-                                val redire = "http://${BDD.ip}:80/sistemas/api/app/?so=$id_so"
+                                val redire = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
                                 cargarDatosHijo(redire,::irlistarApp)
                             }
                         }
                     }
         }else{
-            direccion = "http://${BDD.ip}:80/sistemas/api/app/${app.IDMed}/update"
+            direccion = "http://${BDD.ip}:8000/sistemas/api/app/${app.IDMed}/update"
             val url = direccion
                     .httpPut(parametros)
                     .responseString { request, response, result ->
@@ -232,7 +232,7 @@ class CrearHijo : AppCompatActivity() {
                                 val data = result.get()
                                 Log.i("http-p", data)
                                 mensaje(this,"Aceptado","Datos validos, espere...")
-                                val redire = "http://${BDD.ip}:80/sistemas/api/app/?so=$id_so"
+                                val redire = "http://${BDD.ip}:8000/sistemas/api/app/?so=$id_so"
                                 cargarDatosHijo(redire,::irlistarApp)
                             }
                         }
