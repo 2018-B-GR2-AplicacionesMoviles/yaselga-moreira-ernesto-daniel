@@ -12,6 +12,23 @@
     <string name="borrar_hijo">Borrar Medicamento</string>
     <string name="compartir_hijo">Compartir info del Medicamento</string>
 
+    <string name="padre1">Nombre</string>
+    <string name="padre2">Apellido</string>
+    <string name="padre3">Fecha de Nacimiento</string>
+    <string name="padre4">Medicamentos</string>
+    <string name="padre5">Estado de seguro</string>
+    <string name="padre6">ID PACIENTE</string>
+
+    <string name="hijo1">Dosis</string>
+    <string name="hijo2">Nombre</string>
+    <string name="hijo3">Composicion</string>
+    <string name="hijo4">Usos</string>
+    <string name="hijo5">Expira</string>
+    <string name="hijo6">Numero Pastillas</string>
+    <string name="hijo7">Paciente ID</string>
+    <string name="hijo8">Medicamento ID</string>
+
+
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="tomarFoto">TomarFoto</string>

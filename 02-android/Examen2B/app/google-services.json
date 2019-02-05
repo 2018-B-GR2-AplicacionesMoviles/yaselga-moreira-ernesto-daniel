@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "963521991448",
+    "firebase_url": "https://examen2b-cce6a.firebaseio.com",
+    "project_id": "examen2b-cce6a",
+    "storage_bucket": "examen2b-cce6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963521991448:android:a3e29a76929c614a",
+        "android_client_info": {
+          "package_name": "yaselga.ernesto.examen2b"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963521991448-clvesns8i31pfb1e7sjeofc00lnkn5h9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpVRkBQB99TqAr70siZdtmug56o0FhGfo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
