@@ -1,19 +1,19 @@
 from django.db import models
 
 
-class SistemaOperativo(models.Model):
+class Paciente(models.Model):
     nombre = models.CharField(max_length=20, null=False, blank=False)
-    version = models.CharField(null=False, blank=False, max_length=8)
-    fechaLanzamiento = models.CharField(max_length=20, null=False, blank=False)
-    peso_gigas = models.CharField(null=False, blank=False, max_length=5)
+    apellido = models.CharField(null=False, blank=False, max_length=8)
+    fechaNacimiento = models.CharField(max_length=20, null=False, blank=False)
+    hijos = models.CharField(null=False, blank=False, max_length=5)
 
 
-class Aplicacion(models.Model):
+class Medicamento(models.Model):
     nombre = models.CharField(max_length=20, null=False, blank=False)
-    version = models.CharField(null=False, blank=False, max_length=8)
-    fechaLanzamiento = models.CharField(max_length=20, null=False, blank=False)
-    peso_gigas = models.CharField(null=False, blank=False, max_length=5)
-    costo = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
-    url_descargar = models.CharField(max_length=150, null=False, blank=False)
+    composicion = models.CharField(null=False, blank=False, max_length=8)
+    fechaCaducidad = models.CharField(max_length=20, null=False, blank=False)
+    gramosAingerir = models.CharField(null=False, blank=False, max_length=5)
+    numeroPastillas = models.DecimalField(null=False, blank=False, decimal_places=2, max_digits=5)
+    usadoPara = models.CharField(max_length=150, null=False, blank=False)
     codigo_barras = models.CharField(max_length=13, null=False, blank=False)
-    sistemaOperativo = models.ForeignKey(SistemaOperativo, on_delete=models.CASCADE)
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)

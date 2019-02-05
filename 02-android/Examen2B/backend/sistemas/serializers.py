@@ -2,13 +2,13 @@ from rest_framework import serializers
 from .models import *
 
 
-class SistemaOperativoSerializado(serializers.ModelSerializer):
+class PacienteSerializado(serializers.ModelSerializer):
     class Meta:
-        model = SistemaOperativo
+        model = Paciente
         fields = '__all__'
 
 
-class AplicacionSerializada(serializers.ModelSerializer):
+class MedicamentoSerializada(serializers.ModelSerializer):
     class Meta:
-        model = Aplicacion
+        model = Medicamento
         fields = '__all__'
